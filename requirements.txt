@@ -2,3 +2,4 @@ openai
 pandas
 streamlit
 flask
+gunicorn==20.1.0
