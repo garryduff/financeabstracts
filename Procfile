@@ -1,1 +1,2 @@
-web: gunicorn classify.py
+web: gunicorn myapp:app
+worker: python classify.py
