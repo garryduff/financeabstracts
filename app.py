@@ -26,9 +26,9 @@ def generate_text():
         stop=[" xxx"]
     )
 
-
+    message = response.choices[0].text.strip()
+   
     logprobs = response['choices'][0]['logprobs']['top_logprobs'][0]
-    message = response['choices'][0]['logprobs']['top_logprobs'][0]
           
     return render_template('input.html', message=message)
     
