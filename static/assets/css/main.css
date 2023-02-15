@@ -690,10 +690,8 @@ textarea::-webkit-scrollbar-track {
 		-webkit-appearance: none;
 		-ms-appearance: none;
 		appearance: none;
-		background: transparent;
 		border: solid 2px rgba(255, 255, 255, 0.25);
 		border-radius: 0.25rem;
-		color: inherit;
 		display: block;
 		outline: 0;
 		padding: 0 0.75rem;
