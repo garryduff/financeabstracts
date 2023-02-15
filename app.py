@@ -37,7 +37,7 @@ def generate_text():
         df = df.sort_values(by='Value', ascending=False)
   
     results = []  
-    results.append({"query": abstract, "response1": df.iloc[0, 0], "value1": df.iloc[0, 1], "response2": df.iloc[1, 0], "value2": df.iloc[1, 1], "response3": df.iloc[2, 0], "value3": df.iloc[2, 1]})
+    results.append({"query": prompt, "response1": df.iloc[0, 0], "value1": df.iloc[0, 1], "response2": df.iloc[1, 0], "value2": df.iloc[1, 1], "response3": df.iloc[2, 0], "value3": df.iloc[2, 1]})
 
     df_results = pd.DataFrame(results)
     df_results['prob1'] = np.exp(df_results['value1'])
