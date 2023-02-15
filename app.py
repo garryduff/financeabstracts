@@ -201,7 +201,7 @@ def generate_text():
     prednames3 = str(df_results.at[0, 'prednames3'])
     
     
-    message = prednames1        
+    message = 'hello world'        
     return render_template('input.html', message=message)    
     
 
