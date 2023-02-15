@@ -26,11 +26,9 @@ def generate_text():
         stop=[" xxx"]
     )
 
-    message = response.choices[0].text.strip()
-   
+
     logprobs = response['choices'][0]['logprobs']['top_logprobs'][0]
-          
-    return render_template('input.html', message=message)
+   
     
     df = pd.DataFrame(columns=['Label', 'Value'])
     for label, value in logprobs.items():
@@ -204,7 +202,8 @@ def generate_text():
     prednames3 = str(df_results.at[0, 'prednames3'])
     
     
-    
+    message = prednames1         
+    return render_template('input.html', message=message)    
     
 
 
