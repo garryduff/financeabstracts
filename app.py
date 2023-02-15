@@ -187,17 +187,17 @@ def generate_text():
     df_results['predstar3'] = df_results['predstar3'].astype(float)
 
     df_results['predstarall'] = df_results['predstar1']*df_results['probratio1'] + df_results['predstar2']*df_results['probratio2'] + df_results['predstar3']*df_results['probratio3'] 
-    df_results['predstarall2dp'] = df_results['predstarall'].round(2)
+    df_results['predstarall2dp'] = df_results['predstarall'].round(1)
 
     df_results['predxb5'] = 2.34684 * df_results['predstarall'] - 10.86186
     df_results['predprob5'] = 1/(1+np.exp(-1*df_results['predxb5']))
     df_results['predprob5pct'] = df_results['predprob5']*100
-    df_results['predprob5pct2dp'] = df_results['predprob5pct'].round(2)
+    df_results['predprob5pct2dp'] = df_results['predprob5pct'].round(1)
 
     df_results['predxb4'] = 2.12056 * df_results['predstarall'] - 8.547961
     df_results['predprob4'] = 1/(1+np.exp(-1*df_results['predxb4']))
     df_results['predprob4pct'] = df_results['predprob4']*100
-    df_results['predprob4pct2dp'] = df_results['predprob4pct'].round(2)
+    df_results['predprob4pct2dp'] = df_results['predprob4pct'].round(1)
 
     predstarall2dp = str(df_results.at[0, 'predstarall2dp'])
     predprob5pct2dp = str(df_results.at[0, 'predprob5pct2dp'])
