@@ -8,8 +8,10 @@ def index():
 
 @app.route('/calculate')
 def calculate():
-    # Get the value of x from the request and calculate 3x
-    # ...
+    x = int(request.args.get('x'))
+    result = 3 * x
+    return f"The result of 3 times {x} is {result}."
 
 if __name__ == '__main__':
     app.run()
+
