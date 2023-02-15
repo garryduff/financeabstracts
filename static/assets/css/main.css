@@ -348,7 +348,7 @@ textarea::-webkit-scrollbar-track {
 
 		}
 
-	body, input, select, textarea {
+	body, input, select {
 		color: rgba(255, 255, 255, 0.75);
 		font-family: "Source Sans Pro", Helvetica, sans-serif;
 		font-size: 1rem;
