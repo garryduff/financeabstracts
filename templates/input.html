@@ -26,7 +26,7 @@
 							<section class="panel color4-alt">
 								<div class="intro color4">
 									<h2 class="major">Predictor</h2>
-									<p>This app allows you to predict what journal a paper could be published in, based on just its abstract. To try it, paste in an abstract, and then press Evaluate.</p>
+									<p>This app allows you to predict what journal a paper could be published in, based on just its abstract. It is based on the software used for ChatGPT, trained on the abstracts of thousands of academic journals. The predicted probabilities are based on an out-of-sample test of thousands of other academic abstracts.</p>
 								</div>
 								<div class="inner columns divided">
 									<div class="span-2-5">
@@ -47,7 +47,9 @@
 										<h2 class="major">Result</h2>
 										
 										    	{% if message %}
-    											<p>{{ message }}</p>
+    												<p>{{ message }}</p>
+											{% else %}
+  												<p>To evaluate an abstract just paste it into the text box and press Evaluate.</p>
     											{% endif %}
 										
 									</div>
