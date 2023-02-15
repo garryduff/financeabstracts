@@ -1,5 +1,4 @@
 flask
 gunicorn
 importlib
-setuptools
-
+setuptools==58.2.0
