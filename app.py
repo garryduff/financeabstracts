@@ -25,9 +25,6 @@ def generate_text():
         logprobs=3,
         stop=[" xxx"]
     )
-    message = completions.choices[0].text.strip()
-
-
 
     logprobs = response['choices'][0]['logprobs']['top_logprobs'][0]
     
