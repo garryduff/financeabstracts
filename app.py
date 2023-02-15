@@ -12,9 +12,16 @@ openai.api_key=os.environ.get('OPENAI_API_KEY')
 def index():
     return render_template('input.html')
 
+
+abstract = abstract.rstrip()
+abstract = abstract + '->>'
+
 @app.route('/', methods=['POST'])
 def generate_text():
     prompt = request.form['prompt']
+    prompt = prompt.rstrip()
+    prompt = prompt + '->>'
+
     model_engine = "babbage:ft-personal-2023-02-14-11-21-48"
     
     response = openai.Completion.create(
