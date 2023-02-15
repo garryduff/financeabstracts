@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Input form</title>
+    <title>OpenAI Text Generation</title>
 </head>
 <body>
-    <form action="/calculate" method="GET">
-        <label for="x">Enter a value for x:</label>
-        <input type="number" id="x" name="x">
-        <br>
-        <input type="submit" value="Calculate">
+    <form method="POST" action="">
+        <label for="prompt">Enter a prompt:</label><br>
+        <input type="text" id="prompt" name="prompt"><br>
+        <input type="submit" value="Submit">
     </form>
+    {% if message %}
+    <p>{{ message }}</p>
+    {% endif %}
 </body>
 </html>
+
