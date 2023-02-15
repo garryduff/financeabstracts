@@ -1,39 +1,36 @@
 import openai
-import pandas as pd
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-# OpenAI API key
+# Set up OpenAI API credentials
 openai.api_key = "YOUR_API_KEY"
 
-# Function to use OpenAI to generate text
-def generate_text(prompt):
-    response = openai.Completion.create(
-        engine="davinci",
-        prompt=prompt,
-        temperature=0.5,
-        max_tokens=1000,
-        n=1,
-        stop=None,
-        timeout=10,
-    )
-    return response.choices[0].text
+# Define the GPT-3 model
+model_engine = "davinci"
 
-# Load data into Pandas dataframe
-data = pd.read_csv("data.csv")
-
-# Route to display data
+# Route to display input form
 @app.route("/")
 def index():
-    return render_template("index.html", data=data.to_html())
+    return render_template("input.html")
 
-# Route to generate text using OpenAI
-@app.route("/openai")
-def openai_text():
-    prompt = "What is the meaning of life?"
-    text = generate_text(prompt)
-    return render_template("openai.html", prompt=prompt, text=text)
+# Route to process form data and generate output
+@app.route("/", methods=["POST"])
+def generate_output():
+    # Retrieve input data from form
+    input_text = request.form["input_text"]
 
-if __name__ == "__main__":
-    app.run()
+    # Generate output using GPT-3 API
+    prompt = f"Generate some text based on the input: {input_text}"
+    response = openai.Completion.create(
+        engine=model_engine,
+        prompt=prompt,
+        max_tokens=1024,
+        n=1,
+        stop=None,
+        temperature=0.7,
+    )
+    output_text = response.choices[0].text
+
+    # Return output on web page
+    return render_template("output.html", input_text=input_text, output_text=output_text)
