@@ -33,13 +33,10 @@
 										<form method="post" action="">
 											<div class="fields">
 												<div class="field">												
-													<textarea name="prompt" id="prompt" rows="13">
-														
-										    	{% if message %}
-    												 
-											{% else %}We investigate the effect of scrutiny (e.g., credit ratings, analyst reports, or mandatory disclosures) on the security design problem of a privately informed issuer. We show that scrutiny has important implications for both the form of security designed and the amount of inefficient retention of cash flows. The model predicts that issuers will design informationally sensitive securities (i.e., levered equity) when scrutiny is sufficiently intense. Otherwise, issuers opt for a standard debt contract. Scrutiny increases efficiency by decreasing issuers' reliance on retention to signal quality and, perhaps counterintuitively, decrease price informativeness.									
-    											{% endif %}
-														
+													<textarea name="prompt" id="prompt" rows="13">													
+										    			{% if originalquery %}{{ originalquery }}    												 
+													{% else %}We investigate the effect of scrutiny (e.g., credit ratings, analyst reports, or mandatory disclosures) on the security design problem of a privately informed issuer. We show that scrutiny has important implications for both the form of security designed and the amount of inefficient retention of cash flows. The model predicts that issuers will design informationally sensitive securities (i.e., levered equity) when scrutiny is sufficiently intense. Otherwise, issuers opt for a standard debt contract. Scrutiny increases efficiency by decreasing issuers' reliance on retention to signal quality and, perhaps counterintuitively, decrease price informativeness.									
+    													{% endif %}														
 													</textarea>
 												</div>
 											</div>
