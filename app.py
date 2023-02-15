@@ -29,7 +29,6 @@ def generate_text():
 
     logprobs = response['choices'][0]['logprobs']['top_logprobs'][0]
    
-    
     df = pd.DataFrame(columns=['Label', 'Value'])
     for label, value in logprobs.items():
         df = df.append({'Label': label, 'Value': value}, ignore_index=True)
@@ -202,7 +201,7 @@ def generate_text():
     prednames3 = str(df_results.at[0, 'prednames3'])
     
     
-    message = prednames2         
+    message = prednames1        
     return render_template('input.html', message=message)    
     
 
