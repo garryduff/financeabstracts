@@ -89,6 +89,46 @@ textarea::-webkit-scrollbar-track {
 }
 
 
+/* Styles for screen sizes above 1280px */
+@media screen and (min-width: 1281px) {
+  textarea {
+		height: 250px;
+		font-family: "Source Sans Pro", Helvetica, sans-serif;
+		font-size: 1rem;
+		font-weight: 300;
+		line-height: 1;
+		color: #2e2b37;
+		background-color: rgba(255, 255, 255, 0.9);
+  }
+}
+
+/* Styles for screen sizes below 1280px */
+@media screen and (max-width: 1280px) {
+  textarea {
+		height: 120px;
+		font-family: "Source Sans Pro", Helvetica, sans-serif;
+		font-size: 1rem;
+		font-weight: 300;
+		line-height: 1;
+		color: #2e2b37;
+		background-color: rgba(255, 255, 255, 0.9);
+  }
+}	
+
+/* Styles for screen sizes below 1280px */
+@media screen and (max-width: 780px) {
+  textarea {
+		height: 175px;
+		font-family: "Source Sans Pro", Helvetica, sans-serif;
+		font-size: 1rem;
+		font-weight: 300;
+		line-height: 1;
+		color: #2e2b37;
+		background-color: rgba(255, 255, 255, 0.9);
+  }
+}	
+
+
 /* Page */
 
 	@-moz-keyframes load-spinner {
@@ -1647,7 +1687,7 @@ textarea::-webkit-scrollbar-track {
 		input[type="button"].primary,
 		button.primary,
 		.button.primary {
-			background-color: white;
+			background-color: rgba(255, 255, 255, 0.9);
 			box-shadow: none;
 			color: #2e2b37 !important;
 		}
