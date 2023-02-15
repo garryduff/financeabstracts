@@ -207,7 +207,7 @@ def generate_text():
     prednames3 = str(df_results.at[0, 'prednames3'])
     
     
-    message = "This abstracts scores " + predstarall2dp + " out of a maximum of 5.0. Other abstracts of this score have had a " + predprob5pct2dp + "% success rate of being published in a world elite (4+ star) journal, and " + predprob4pct2dp + "% of being published in a leading (4 star) journal. The most likely venues for publication are: " + prednames1 + ", " + prednames2 + ", " + prednames3 + "." 
+    message = "This abstracts scores " + predstarall2dp + " out of a maximum of 5.0. Other abstracts of this score have had a " + predprob5pct2dp + "% success rate of being published in a world elite (4+ star) journal, and " + predprob4pct2dp + "% of being published in a leading (4 star) journal. The most likely venues for publication are: " + prednames1 + ", " + prednames2 + ", or " + prednames3 + "." 
     
     return render_template('input.html', message=message) 
     
