@@ -2,3 +2,4 @@ flask
 gunicorn
 setuptools
 openai
+os
