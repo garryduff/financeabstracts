@@ -26,10 +26,13 @@ def generate_text():
         stop=[" xxx"]
     )
     message = completions.choices[0].text.strip()
-    return render_template('input.html', message=message)
+
 
 
     logprobs = response['choices'][0]['logprobs']['top_logprobs'][0]
+    
+    return render_template('input.html', message=logprobs)
+    
     df = pd.DataFrame(columns=['Label', 'Value'])
     for label, value in logprobs.items():
         df = df.append({'Label': label, 'Value': value}, ignore_index=True)
