@@ -13,9 +13,6 @@ def index():
     return render_template('input.html')
 
 
-abstract = abstract.rstrip()
-abstract = abstract + '->>'
-
 @app.route('/', methods=['POST'])
 def generate_text():
     prompt = request.form['prompt']
