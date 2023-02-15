@@ -15,7 +15,7 @@ def generate_text():
     prompt = request.form['prompt']
     model_engine = "babbage:ft-personal-2023-02-14-11-21-48"
     
-    completions = openai.Completion.create(
+    response = openai.Completion.create(
         engine=model_engine,
         prompt=prompt,
         max_tokens=3,
@@ -26,9 +26,10 @@ def generate_text():
         stop=[" xxx"]
     )
 
+
     logprobs = response['choices'][0]['logprobs']['top_logprobs'][0]
     message = response['choices'][0]['logprobs']['top_logprobs'][0]
-    
+          
     return render_template('input.html', message=message)
     
     df = pd.DataFrame(columns=['Label', 'Value'])
