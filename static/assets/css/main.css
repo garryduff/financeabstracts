@@ -118,7 +118,7 @@ textarea::-webkit-scrollbar-track {
 
 @media screen and (max-width: 850px) {
   textarea {
-		height: 175px;
+		height: 160px;
 		font-family: "Source Sans Pro", Helvetica, sans-serif;
 		font-size: 1rem;
 		font-weight: 300;
@@ -131,6 +131,19 @@ textarea::-webkit-scrollbar-track {
 
 @media screen and (max-width: 750px) {
   textarea {
+		height: 190px;
+		font-family: "Source Sans Pro", Helvetica, sans-serif;
+		font-size: 1rem;
+		font-weight: 300;
+		line-height: 1;
+		color: #2e2b37;
+		background-color: rgba(255, 255, 255, 0.9);
+  }
+}	
+
+
+@media screen and (max-width: 600px) {
+  textarea {
 		height: 215px;
 		font-family: "Source Sans Pro", Helvetica, sans-serif;
 		font-size: 1rem;
@@ -142,7 +155,7 @@ textarea::-webkit-scrollbar-track {
 }	
 
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 500px) {
   textarea {
 		height: 250px;
 		font-family: "Source Sans Pro", Helvetica, sans-serif;
@@ -153,6 +166,19 @@ textarea::-webkit-scrollbar-track {
 		background-color: rgba(255, 255, 255, 0.9);
   }
 }	
+
+@media screen and (max-width: 415px) {
+  textarea {
+		height: 290px;
+		font-family: "Source Sans Pro", Helvetica, sans-serif;
+		font-size: 1rem;
+		font-weight: 300;
+		line-height: 1;
+		color: #2e2b37;
+		background-color: rgba(255, 255, 255, 0.9);
+  }
+}	
+
 
 
 
