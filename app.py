@@ -109,6 +109,8 @@ def generate_text():
     ' re': 'Economic Journal (4)',
     ' rn': 'Journal of Monetary Economics (4)',   
     ' ro': 'Applied Economics (2)',
+    ' va': 'European Journal of Operational Research (4)',
+    ' ve': 'Management Science (4+)',
     ' ud': 'Unclassified (0)',
     ' ub': 'Unclassified (0)',
     ' un': 'Unclassified (0)', 
@@ -172,7 +174,9 @@ def generate_text():
     ' ro': '2',
     ' ud': '0',
     ' ub': '0',
-    ' un': '0',  
+    ' un': '0', 
+    ' va': '4',
+    ' ve': '5',    
     }
 
 
