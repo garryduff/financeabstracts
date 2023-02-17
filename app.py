@@ -111,6 +111,7 @@ def generate_text():
     ' ru': 'Journal of Monetary Economics (4)',   
     ' va': 'European Journal of Operational Research (4)',
     ' ve': 'Management Science (4+)',
+    ' vo': 'International Journal of Forecasting (3)',        
     ' ud': 'Unclassified (0)',
     ' ub': 'Unclassified (0)',
     ' un': 'Unclassified (0)', 
@@ -176,7 +177,8 @@ def generate_text():
     ' ub': '0',
     ' un': '0', 
     ' va': '4',
-    ' ve': '5',    
+    ' ve': '5', 
+    ' vo': '3',  
     }
 
 
