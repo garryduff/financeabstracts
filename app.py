@@ -19,7 +19,7 @@ def generate_text():
     prompt = prompt.rstrip()
     prompt = prompt + '->>'
 
-    model_engine = "babbage:ft-personal-2023-02-17-11-01-58"
+    model_engine = "babbage:ft-personal-2023-02-17-14-01-18"
     
     response = openai.Completion.create(
         engine=model_engine,
