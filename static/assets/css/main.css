@@ -157,7 +157,7 @@ textarea::-webkit-scrollbar-track {
 
 @media screen and (max-width: 600px) {
   textarea {
-		height: 215px;
+		height: 230px;
 		font-family: "Source Sans Pro", Helvetica, sans-serif;
 		font-size: 1rem;
 		font-weight: 300;
@@ -170,7 +170,7 @@ textarea::-webkit-scrollbar-track {
 
 @media screen and (max-width: 520px) {
   textarea {
-		height: 250px;
+		height: 260px;
 		font-family: "Source Sans Pro", Helvetica, sans-serif;
 		font-size: 1rem;
 		font-weight: 300;
