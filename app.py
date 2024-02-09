@@ -1,8 +1,9 @@
 from flask import Flask, render_template, request
-import openai
 import os
 import pandas as pd
 import numpy as np
+from openai import OpenAI
+client = OpenAI()
 
 app = Flask(__name__, template_folder='templates')
 
@@ -21,8 +22,8 @@ def generate_text():
 
     model_engine = "babbage:ft-personal-2023-02-17-14-01-18"
     
-    response = openai.Completion.create(
-        engine=model_engine,
+    response = client.completions.create(
+        model=model_engine,
         prompt=prompt,
         max_tokens=3,
         top_p=1,
@@ -31,9 +32,8 @@ def generate_text():
         logprobs=3,
         stop=[" xxx"]
     )
-   
 
-    logprobs = response['choices'][0]['logprobs']['top_logprobs'][0]
+    logprobs = response.choices[0].logprobs.top_logprobs[0]
    
     df = pd.DataFrame(columns=['Label', 'Value'])
     for label, value in logprobs.items():
