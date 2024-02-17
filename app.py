@@ -32,7 +32,7 @@ def generate_text():
       presence_penalty=0
     )
 
-    message = response["choices"][0]["text"]
+    message = response.choices[0].text
     originalquery = message
 
     return render_template('input.html', message=message, originalquery=originalquery) 
