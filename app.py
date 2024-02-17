@@ -35,6 +35,15 @@ def generate_text():
     )
     
     message = response.choices[0].text
+    logprobs = response.choices[0].logprobs
+
+    df = pd.DataFrame(columns=['Label', 'Value'])
+    for label, value in logprobs.items():
+        df = df.append({'Label': label, 'Value': value}, ignore_index=True)
+        df = df.sort_values(by='Value', ascending=False)
+
+
+    
     originalquery = message
 
     return render_template('input.html', message=message, originalquery=originalquery) 
