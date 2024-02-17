@@ -3,7 +3,6 @@ import os
 import pandas as pd
 import numpy as np
 import openai
-from openai import OpenAI
 client = OpenAI()
 
 app = Flask(__name__, template_folder='templates')
