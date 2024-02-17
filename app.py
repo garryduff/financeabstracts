@@ -15,6 +15,9 @@ def index():
 
 @app.route('/', methods=['POST'])
 def generate_text():
+    
+    from openai import OpenAI
+    client = OpenAI()
     prompt = request.form['prompt']
     prompt = prompt.rstrip()
     prompt = prompt + '->>'
