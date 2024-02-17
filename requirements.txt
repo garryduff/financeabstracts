@@ -1,6 +1,6 @@
 flask
 gunicorn
 setuptools
-openai
+openai==1.12.0
 pandas
 numpy
