@@ -19,7 +19,7 @@ def generate_text():
     prompt = prompt.rstrip()
     prompt = prompt + '->>'
 
-    model_engine = "babbage:ft-personal-2023-02-17-14-01-18"
+    model_engine = "ft:babbage-002:personal::8tJOCt1q"
     
     response = client.completions.create(
         model=model_engine,
