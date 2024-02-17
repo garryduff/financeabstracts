@@ -30,7 +30,7 @@ def generate_text():
       ]
     )
 
-    message = completion.choices[0].logprobs.top_logprobs[0]
+    message = completion.choices[0].message.content
     originalquery = message
 
     return render_template('input.html', message=message, originalquery=originalquery) 
