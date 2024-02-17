@@ -3,11 +3,11 @@ import os
 import pandas as pd
 import numpy as np
 import openai
+from openai import OpenAI
 
 app = Flask(__name__, template_folder='templates')
 
 openai.api_key=os.environ.get('OPENAI_API_KEY')
-client = OpenAI(api_key=api_key)
 
 @app.route('/')
 def index():
