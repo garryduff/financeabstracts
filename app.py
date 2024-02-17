@@ -15,10 +15,7 @@ def index():
 
 @app.route('/', methods=['POST'])
 def generate_text():
-    
-    from openai import OpenAI
-    client = OpenAI()
-    
+
     originalquery = "Check"  
     message = "Check" 
     
