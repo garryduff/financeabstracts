@@ -35,12 +35,10 @@ def generate_text():
     )
     
     message = response.choices[0].text
-    logprobs = response.choices[0].logprobs
 
-    df = pd.DataFrame(columns=['Label', 'Value'])
-    for label, value in logprobs.items():
-        df = df.append({'Label': label, 'Value': value}, ignore_index=True)
-        df = df.sort_values(by='Value', ascending=False)
+    top_logprobs = response.choices[0].logprobs.top_logprobs[0]
+    df = pd.DataFrame(top_logprobs.items(), columns=['Label', 'Value'])
+    df = df.sort_values(by='Value', ascending=False)
 
 
     
