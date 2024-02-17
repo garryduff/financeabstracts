@@ -7,6 +7,9 @@ import openai
 app = Flask(__name__, template_folder='templates')
 
 openai.api_key=os.environ.get('OPENAI_API_KEY')
+from openai import OpenAI
+client = OpenAI()
+
 
 @app.route('/')
 def index():
@@ -16,9 +19,6 @@ def index():
 @app.route('/', methods=['POST'])
 def generate_text():
 
-    from openai import OpenAI
-    client = OpenAI()
-    
     model_engine = "ft:babbage-002:personal::8tJOCt1q"
     
     response = client.completions.create(
