@@ -22,9 +22,13 @@ def generate_text():
     from openai import OpenAI
     client = OpenAI()
 
+    prompt = request.form['prompt']
+    prompt = prompt.rstrip()
+    prompt = prompt + '->>'
+
     response = client.completions.create(
       model="ft:babbage-002:personal::8tJOCt1q",
-      prompt="We develop a tractable model of systemic bank runs. The market-based banking system features a two-layer structure: banks with heterogeneous fundamentals face potential runs by their creditors while they trade short-term funding in the asset (interbank) market in response to creditor withdrawals. The possibility of a run on a particular bank depends on its assets' interim liquidation value, and this value depends endogenously in turn on the status of other banks in the asset market. The within-bank coordination problem among creditors and the cross-bank price externality feed into each other. A small shock can be amplified into a systemic crisis.->>",
+      prompt=prompt,
       temperature=1,
       max_tokens=3,
       top_p=1,
@@ -45,7 +49,7 @@ def generate_text():
 
     # Create a list of dictionaries with the top 3 responses and their log probabilities
     results = [{
-        "query": "prompt",
+        "query": prompt,
         "response1": top3.iloc[0, 0], "value1": top3.iloc[0, 1],
         "response2": top3.iloc[1, 0], "value2": top3.iloc[1, 1],
         "response3": top3.iloc[2, 0], "value3": top3.iloc[2, 1]
