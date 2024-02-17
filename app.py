@@ -2,8 +2,7 @@ from flask import Flask, render_template, request
 import os
 import pandas as pd
 import numpy as np
-from openai import OpenAI
-client = OpenAI()
+import openai
 
 app = Flask(__name__, template_folder='templates')
 
