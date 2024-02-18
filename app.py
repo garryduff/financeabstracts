@@ -27,7 +27,7 @@ def generate_text():
     prompt = prompt + '->>'
 
     response = client.completions.create(
-      model="ft:babbage-002:personal::8tJOCt1q",
+      model="ft:babbage-002:personal::8tOg9ZzZ",
       prompt=prompt,
       temperature=1,
       max_tokens=3,
