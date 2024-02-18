@@ -62,8 +62,8 @@ def generate_text():
           "content": prompt
         },
       ],
-      temperature=0.3,
-      max_tokens=256,
+      temperature=0,
+      max_tokens=1,
       top_p=1,
       frequency_penalty=0,
       presence_penalty=0,
@@ -276,7 +276,7 @@ def generate_text():
 
     # message = "MODEL 1: " + model1 +  "\n\nMODEL 2: This abstract scores " + predstarall2dp + " out of a maximum of 5.0. Other abstracts of this score have an estimated success rate of " + predprob5pct2dp + "% of being published in a world elite (4+ star) journal, and " + predprob4pct2dp + "% of being published in at least a leading (4 star) journal. The most likely venues for publication are: " + prednames1 + ", " + prednames2 + ", or " + prednames3 + "." 
 
-    message = "The ChatGPT3.5 model predicts that the most likely venue is " + model1 +  ". A probabilistic model suggests the following possibilities " + prednames1 + ", " + prednames2 + ", or " + prednames3 + "." 
+    message = "The base model predicts that the most likely venue is " + model1 +  ". A probabilistic model suggests the following possibilities " + prednames1 + ", " + prednames2 + ", or " + prednames3 + "." 
 
     return render_template('input.html', message=message, originalquery=originalquery) 
     
