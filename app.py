@@ -26,36 +26,46 @@ def generate_text():
     prompt = prompt.rstrip()
     prompt = prompt + '->>'
 
-    response = client.completions.create(
-      model="ft:babbage-002:personal::8tZC8Rat",
-      prompt=prompt,
-      temperature=1,
-      max_tokens=3,
+
+    response = client.chat.completions.create(
+      model="ft:gpt-3.5-turbo-1106:personal::8tPyu3pp",
+      messages=[
+        {
+          "role": "system",
+          "content": "You classify academic abstracts to the most appropriate journal.\n\nYou only return the short code for the most appropriate journal provided in the fine tuning data."
+        },
+        {
+          "role": "user",
+          "content": prompt
+        },
+      ],
+      temperature=0.3,
+      max_tokens=256,
       top_p=1,
       frequency_penalty=0,
       presence_penalty=0,
-      logprobs=3,
-      stop=[" yyy"]
+      logprobs=True,
+      top_logprobs=3
     )
-    
-    top_logprobs = response.choices[0].logprobs.top_logprobs[0]  # Get the first item's log probabilities
 
-    # Create a DataFrame and sort it
-    df = pd.DataFrame(top_logprobs.items(), columns=['Label', 'Value'])
-    df.sort_values(by='Value', ascending=False, inplace=True)
 
-    # Extract the top 3 responses and their log probabilities
+    top_logprobs = response.choices[0].logprobs.content[0].top_logprobs
+
+    flattened_logprobs = [(top_logprob.token, top_logprob.logprob) for top_logprob in top_logprobs]
+
+    df = pd.DataFrame(flattened_logprobs, columns=['Token', 'LogProb'])
+
+    df.sort_values(by='LogProb', ascending=False, inplace=True)
+
     top3 = df.head(3)
 
-    # Create a list of dictionaries with the top 3 responses and their log probabilities
     results = [{
-        "query": prompt,
+        "query": prompt,  # Ensure 'prompt' is defined somewhere in your code
         "response1": top3.iloc[0, 0], "value1": top3.iloc[0, 1],
         "response2": top3.iloc[1, 0], "value2": top3.iloc[1, 1],
         "response3": top3.iloc[2, 0], "value3": top3.iloc[2, 1]
     }]
 
-    # Convert results to a DataFrame
     df_results = pd.DataFrame(results)
 
     # Calculate the exponent of the log probabilities to get probabilities
