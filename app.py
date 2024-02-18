@@ -36,7 +36,7 @@ def generate_text():
         },
         {
           "role": "user",
-          "content": "Do illegal insiders internalize legal risk? We address this question with hand‐collected data from 530 SEC (the U.S. Securities and Exchange Commission) investigations. Using two plausibly exogenous shocks to expected penalties, we show that insiders trade less aggressively and earlier and concentrate on tips of greater value when facing a higher risk. The results match the predictions of a model where an insider internalizes the impact of trades on prices and the likelihood of prosecution and anticipates penalties in proportion to trade profits. Our findings lend support to the effectiveness of U.S. regulations' deterrence and the long‐standing hypothesis that insider trading enforcement can hamper price informativeness."
+          "content": prompt
         },
       ],
       temperature=0,
