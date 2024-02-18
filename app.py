@@ -276,7 +276,7 @@ def generate_text():
 
     # message = "MODEL 1: " + model1 +  "\n\nMODEL 2: This abstract scores " + predstarall2dp + " out of a maximum of 5.0. Other abstracts of this score have an estimated success rate of " + predprob5pct2dp + "% of being published in a world elite (4+ star) journal, and " + predprob4pct2dp + "% of being published in at least a leading (4 star) journal. The most likely venues for publication are: " + prednames1 + ", " + prednames2 + ", or " + prednames3 + "." 
 
-    message = "MODEL 1: " + model1 +  "\n\nMODEL 2: The most likely venues for publication are: " + prednames1 + ", " + prednames2 + ", or " + prednames3 + "." 
+    message = "MODEL 1: " + model1 +  "<p>MODEL 2: The most likely venues for publication are: " + prednames1 + ", " + prednames2 + ", or " + prednames3 + "." 
 
     return render_template('input.html', message=message, originalquery=originalquery) 
     
