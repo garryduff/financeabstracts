@@ -32,7 +32,7 @@ def generate_text():
       messages=[
         {
           "role": "system",
-          "content": "You classify academic abstracts to the most appropriate journal.\n\nYou only return the name of the most appropriate journal provided in the fine tuning data."
+          "content": "You classify academic abstracts to the most appropriate journal. You ONLY return the name of the most appropriate journal provided in the fine tuning data."
         },
         {
           "role": "user",
@@ -55,7 +55,7 @@ def generate_text():
       messages=[
         {
           "role": "system",
-          "content": "You classify academic abstracts to the most appropriate journal.\n\nYou only return the short code for the most appropriate journal provided in the fine tuning data."
+          "content": "You classify academic abstracts to the most appropriate journal. You ONLY return the short code for the most appropriate journal provided in the fine tuning data."
         },
         {
           "role": "user",
