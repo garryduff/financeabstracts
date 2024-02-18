@@ -27,6 +27,29 @@ def generate_text():
     prompt = prompt + '->>'
 
 
+    response1 = client.chat.completions.create(
+      model="ft:gpt-3.5-turbo-1106:personal::8tPwFsXu",
+      messages=[
+        {
+          "role": "system",
+          "content": "You classify academic abstracts to the most appropriate journal.\n\nYou only return the name of the most appropriate journal provided in the fine tuning data."
+        },
+        {
+          "role": "user",
+          "content": "Do illegal insiders internalize legal risk? We address this question with hand‐collected data from 530 SEC (the U.S. Securities and Exchange Commission) investigations. Using two plausibly exogenous shocks to expected penalties, we show that insiders trade less aggressively and earlier and concentrate on tips of greater value when facing a higher risk. The results match the predictions of a model where an insider internalizes the impact of trades on prices and the likelihood of prosecution and anticipates penalties in proportion to trade profits. Our findings lend support to the effectiveness of U.S. regulations' deterrence and the long‐standing hypothesis that insider trading enforcement can hamper price informativeness."
+        },
+      ],
+      temperature=0,
+      max_tokens=256,
+      top_p=1,
+      frequency_penalty=0,
+      presence_penalty=0
+    )
+
+    model1 = response1.choices[0].message.content
+
+
+
     response = client.chat.completions.create(
       model="ft:gpt-3.5-turbo-1106:personal::8tPyu3pp",
       messages=[
