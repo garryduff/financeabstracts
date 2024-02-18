@@ -52,7 +52,7 @@ def generate_text():
 
     
     response = client.completions.create(
-      model="ft:babbage-002:personal::8tZC8Rat",
+      model="ft:davinci-002:personal::8tPILSCl",
       prompt=prompt,
       temperature=1,
       max_tokens=3,
