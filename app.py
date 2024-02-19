@@ -267,7 +267,7 @@ def generate_text():
     originalquery = str(df_results.at[0, 'queryx'])   
 
     
-    message = "The base model predicts that the most likely venue is " + model1 +  ". A probabilistic model suggests the following possibilities " + prednames1 + ", " + prednames2 + ", or " + prednames3 + "." 
+    message = "The base model predicts that the most likely venue is " + model1 +  ". A probabilistic model suggests the following possibilities: " + prednames1 + ", " + prednames2 + ", or " + prednames3 + "." 
 
     return render_template('input.html', message=message, originalquery=originalquery) 
     
