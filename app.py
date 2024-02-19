@@ -28,11 +28,11 @@ def generate_text():
 
 
     response1 = client.chat.completions.create(
-      model="ft:gpt-3.5-turbo-1106:personal::8tPwFsXu",
+      model="ft:gpt-3.5-turbo-1106:personal::8txUY5Dt",
       messages=[
         {
           "role": "system",
-          "content": "You classify academic abstracts to the most appropriate journal. You ONLY return the name of the most appropriate journal provided in the fine tuning data."
+          "content": "You classify academic abstracts to the most appropriate journal. You ONLY return the name of the most appropriate journal, and its quality indicator, provided in the fine tuning data."
         },
         {
           "role": "user",
