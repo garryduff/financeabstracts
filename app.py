@@ -16,6 +16,29 @@ def index():
     return render_template('input.html')
 
 
+@app.route('/upload', methods=['POST'])
+def upload_file():
+    # Check if a file is part of the request
+    if 'file' not in request.files:
+        return 'No file part', 400
+
+    file = request.files['file']
+
+    # If the user does not select a file, the browser submits an
+    # empty part without a filename
+    if file.filename == '':
+        return 'No selected file', 400
+
+    if file:
+        # You can now use the file object to read its contents, save it, etc.
+        content = file.read().decode('utf-8')  # Example: reading the content as text
+
+        # Do something with the content
+        # e.g., analyze it, save it to a file, etc.
+
+        return 'File processed successfully', 200
+
+
 @app.route('/', methods=['POST'])
 def generate_text():
 
