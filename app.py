@@ -3,7 +3,6 @@ import os
 import pandas as pd
 import numpy as np
 import openai
-import boto3
 
 app = Flask(__name__, template_folder='templates')
 
@@ -11,43 +10,6 @@ openai.api_key=os.environ.get('OPENAI_API_KEY')
 from openai import OpenAI
 client = OpenAI()
 
-# Configure Boto3 to use your AWS S3
-s3 = boto3.client(
-    's3',
-    aws_access_key_id=os.environ.get('AWS_ACCESS_KEY_ID'),
-    aws_secret_access_key=os.environ.get('AWS_SECRET_ACCESS_KEY')
-)
-
-BUCKET_NAME = os.environ.get('herokufinanceapp')  # Replace with your bucket name
-
-@app.route("/account/")
-def account():
-    return render_template('account.html')
-
-@app.route('/sign_s3/')
-def sign_s3():
-  S3_BUCKET = os.environ.get('S3_BUCKET')
-
-  file_name = request.args.get('file_name')
-  file_type = request.args.get('file_type')
-
-  s3 = boto3.client('s3')
-
-  presigned_post = s3.generate_presigned_post(
-    Bucket = S3_BUCKET,
-    Key = file_name,
-    Fields = {"acl": "public-read", "Content-Type": file_type},
-    Conditions = [
-      {"acl": "public-read"},
-      {"Content-Type": file_type}
-    ],
-    ExpiresIn = 3600
-  )
-
-  return json.dumps({
-    'data': presigned_post,
-    'url': 'https://%s.s3.amazonaws.com/%s' % (S3_BUCKET, file_name)
-  })
 
 @app.route('/', methods=['POST'])
 def generate_text():
