@@ -3,6 +3,7 @@ import os
 import pandas as pd
 import numpy as np
 import openai
+import boto3
 
 app = Flask(__name__, template_folder='templates')
 
