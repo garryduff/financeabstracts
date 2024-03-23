@@ -10,7 +10,10 @@ openai.api_key=os.environ.get('OPENAI_API_KEY')
 from openai import OpenAI
 client = OpenAI()
 
-
+@app.route('/')
+def index():
+    return render_template('input.html')
+    
 @app.route('/', methods=['POST'])
 def generate_text():
 
