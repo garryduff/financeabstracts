@@ -16,7 +16,6 @@ client = OpenAI()
 def index():
     return render_template('input.html')
 
-app = Flask(__name__)
 
 # Configure Boto3 to use your AWS S3
 s3 = boto3.client(
