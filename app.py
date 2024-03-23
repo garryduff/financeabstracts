@@ -11,12 +11,6 @@ openai.api_key=os.environ.get('OPENAI_API_KEY')
 from openai import OpenAI
 client = OpenAI()
 
-
-@app.route('/')
-def index():
-    return render_template('input.html')
-
-
 # Configure Boto3 to use your AWS S3
 s3 = boto3.client(
     's3',
