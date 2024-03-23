@@ -20,34 +20,9 @@ s3 = boto3.client(
 
 BUCKET_NAME = os.environ.get('herokufinanceapp')  # Replace with your bucket name
 
-@app.route('/')
-def index():
-    return render_template('upload.html')  # HTML form for uploading a file
-
-
-@app.route('/upload', methods=['POST'])
-def upload():
-    if 'file' not in request.files:
-        return redirect(request.url)
-
-    file = request.files['file']
-
-    if file.filename == '':
-        return redirect(request.url)
-
-    if file:
-        s3.upload_fileobj(
-            file,
-            BUCKET_NAME,
-            file.filename,
-            ExtraArgs={
-                "ACL": "public-read"  # or use "private"
-            }
-        )
-
-        return '<h1>File uploaded successfully</h1>'
-
-
+@app.route("/account/")
+def account():
+    return render_template('account.html')
 
 
 @app.route('/', methods=['POST'])
