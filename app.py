@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 import os
 import pandas as pd
 import numpy as np
@@ -15,6 +15,46 @@ client = OpenAI()
 @app.route('/')
 def index():
     return render_template('input.html')
+
+app = Flask(__name__)
+
+# Configure Boto3 to use your AWS S3
+s3 = boto3.client(
+    's3',
+    aws_access_key_id=os.environ.get('AWS_ACCESS_KEY_ID'),
+    aws_secret_access_key=os.environ.get('AWS_SECRET_ACCESS_KEY')
+)
+
+BUCKET_NAME = os.environ.get('herokufinanceapp')  # Replace with your bucket name
+
+@app.route('/')
+def index():
+    return render_template('upload.html')  # HTML form for uploading a file
+
+
+@app.route('/upload', methods=['POST'])
+def upload():
+    if 'file' not in request.files:
+        return redirect(request.url)
+
+    file = request.files['file']
+
+    if file.filename == '':
+        return redirect(request.url)
+
+    if file:
+        s3.upload_fileobj(
+            file,
+            BUCKET_NAME,
+            file.filename,
+            ExtraArgs={
+                "ACL": "public-read"  # or use "private"
+            }
+        )
+
+        return '<h1>File uploaded successfully</h1>'
+
+
 
 
 @app.route('/', methods=['POST'])
