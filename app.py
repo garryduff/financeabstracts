@@ -26,7 +26,7 @@ def generate_text():
 
 
     response1 = client.chat.completions.create(
-      model="ft:gpt-4o-mini-2024-07-18:personal:abstract-mini4o:9oZQmNVF",
+      model="ft:gpt-4o-mini-2024-07-18:personal::9vsnJhwa",
       messages=[
         {
           "role": "system",
